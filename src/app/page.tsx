@@ -9,7 +9,9 @@ import Footer from "@/components/Footer";
 
 const getBlogPostContentful = async () => {
   try {
-    const data = await contentfulClient.getEntries<TypeBlogPostSkeleton>();
+    const data = await contentfulClient.getEntries<TypeBlogPostSkeleton>({
+      content_type: "blogPost",
+    });
     console.log(data.items);
 
     return data;
