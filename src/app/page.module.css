@@ -6,6 +6,9 @@
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
 
+  --background: #fff;
+  --foreground: #000;
+
   display: grid;
   grid-template-rows: 20px 1fr 20px;
   align-items: center;
@@ -13,19 +16,21 @@
   min-height: 100svh;
   padding: 40px;
   gap: 64px;
-  font-family: "Inter", sans-serif; 
-  background-color: var(--background); 
+  font-family: "Inter", sans-serif;
+  background-color: var(--background);
 
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+  transition: background-color 0.3s ease;
+}
 
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --background: #121212; 
-  }
+.page.dark {
+  --gray-rgb: 255, 255, 255;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+
+  --button-primary-hover: #ccc;
+  --button-secondary-hover: #1a1a1a;
+  --background: #121212;
+  --foreground: #fff;
 }
 
 .main {
@@ -81,7 +86,7 @@
   line-height: 24px;
   font-weight: 600;
   background-color: var(--button-primary-hover);
-  color: #fff;
+  color: var(--foreground);
 }
 
 a.primary {
@@ -166,6 +171,10 @@ a.secondary {
 }
 
 @media (prefers-color-scheme: dark) {
+  .page {
+    background-color: var(--background);
+  }
+
   .logo {
     filter: invert();
   }
